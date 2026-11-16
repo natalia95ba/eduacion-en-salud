@@ -8,7 +8,7 @@ import { Button } from './components/ui/button' */
 import Home from './PublicZone/Home'
 import MeetUs from './PublicZone/MeetUs'
 import Servicios from './PublicZone/EnterpriseServices';
-import ComoTrabajamos from "./PublicZone/ComoTrabajamos";
+import ComoTrabajamos from "./PublicZone/Comotrabajamos";
 import {
   AvisoLegal,
   PoliticaPrivacidad,
