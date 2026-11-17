@@ -139,7 +139,7 @@ function Hero() {
     <section className="home-hero">
       <div className="home-hero-background">
         <img
-          src={`${import.meta.env.BASE_URL}images/juanma-desire.jpeg`}
+          src={`${import.meta.env.BASE_URL}images/juanma-desire.png`}
           alt="Equipo de Educación en Salud"
         />
       </div>
