@@ -18,7 +18,7 @@ import {
 
  
 function Placeholder({ title }) {
-  return <> <Header/> <main className="flex min-h-[75vh] items-center justify-center px-6 pt-24"><div className="max-w-xl text-center"><PawPrint className="mx-auto mb-5 h-12 w-12 text-brand-green"/><p className="mb-3 text-xs font-bold uppercase tracking-widest text-brand-green">Pawsitive Sanctuary</p><h1 className="font-display text-4xl font-extrabold text-ink">{title}</h1><p className="mt-4 leading-7 text-muted">Esta sección la desarrollaremos en la siguiente fase del proyecto.</p><Button asChild className="mt-8"><Link to="/">Volver a la home</Link></Button></div></main>{/* <Footer/> */}</>
+  return <> <Header/> <main className="flex min-h-[75vh] items-center justify-center px-6 pt-24"><div className="max-w-xl text-center"><p className="mb-3 text-xs font-bold uppercase tracking-widest text-brand-green">Pawsitive Sanctuary</p><h1 className="font-display text-4xl font-extrabold text-ink">{title}</h1><p className="mt-4 leading-7 text-muted">Esta sección la desarrollaremos en la siguiente fase del proyecto.</p></div></main>{/* <Footer/> */}</>
 }
 
 function isAuthenticated() {
