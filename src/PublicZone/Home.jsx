@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useState } from "react";
 import {
   Users,
   Zap,
@@ -17,6 +17,7 @@ import {
   Mail,
   Leaf,
   HeartPulse,
+  X,
 } from "lucide-react";
 import "./css/Home.css";
 import { Header } from "../components/Header";
@@ -31,6 +32,10 @@ const services = [
     image: "/images/movimiento.jpeg",
     icon: Footprints,
     link: "/movimiento",
+    subtitle: "Moverse más, sin complicarse",
+    detail:
+      "Pasar muchas horas sentado o mantener la misma postura puede generar sensación de rigidez y cansancio.\n\nAyudamos a los trabajadores a descubrir pequeñas oportunidades para moverse durante su jornada, con movimientos sencillos que pueden realizar incluso sin levantarse de la silla.",
+    highlight: "Pequeñas pausas que caben en cualquier día.",
   },
   {
     title: "Fuerza y capacidad cardiovascular",
@@ -39,6 +44,11 @@ const services = [
     image: "/images/fuerza.jpeg",
     icon: Dumbbell,
     link: "/fuerza",
+    subtitle: "Entrenar también es posible con poco tiempo",
+    detail:
+      "No siempre es fácil encontrar tiempo para hacer ejercicio, pero no hace falta entrenar todos los días para empezar.\n\nMostramos cómo incorporar entrenamientos sencillos de fuerza y resistencia, adaptados a diferentes niveles y disponibilidad de tiempo.",
+    highlight:
+      "El objetivo es que cada persona encuentre una forma realista de mantenerse activa.",
   },
   {
     title: "Alimentación",
@@ -47,6 +57,11 @@ const services = [
     image: "/images/alimentacion.jpeg",
     icon: Apple,
     link: "/alimentacion",
+    subtitle: "Comer mejor sin pasar horas en la cocina",
+    detail:
+      "Las prisas, los horarios y la falta de planificación pueden hacer que comer bien resulte complicado.\n\nCompartimos herramientas prácticas para organizar las comidas, hacer compras más sencillas y preparar opciones equilibradas sin dedicar demasiado tiempo.",
+    highlight:
+      "Menos dudas sobre qué comer y más soluciones para el día a día.",
   },
   {
     title: "Calma y descanso",
@@ -55,14 +70,23 @@ const services = [
     image: "/images/calma.jpeg",
     icon: Flower2,
     link: "/calma",
+    subtitle: "Encontrar momentos de calma en días exigentes",
+    detail:
+      "Las responsabilidades, las preocupaciones y el ritmo cotidiano pueden dificultar la desconexión y el descanso.\n\nAcercamos estrategias sencillas para gestionar momentos de tensión, introducir pequeñas pausas de calma y favorecer un descanso de mayor calidad.",
+    highlight: "Cuidarse también significa saber parar.",
   },
   {
     title: "Hábitos",
     description:
       "Recursos para facilitar cambios sostenibles sin depender de la motivación constante.",
     image: "/images/habitos.jpeg",
-    icon: Check,
+    icon: Flower2,
     link: "/habitos",
+    subtitle: "De las buenas intenciones a la acción",
+    detail:
+      "Muchas veces sabemos qué nos conviene hacer, pero mantenerlo en el tiempo es lo más difícil.\n\nAyudamos a identificar obstáculos cotidianos y a convertir los objetivos de salud en acciones pequeñas, concretas y compatibles con la rutina de cada persona.",
+    highlight:
+      "Porque lo importante no es hacerlo perfecto, sino encontrar una forma de continuar.",
   },
 ];
 
@@ -202,6 +226,8 @@ function Introduction() {
 }
 
 function Services() {
+  const [selectedService, setSelectedService] = useState(null);
+
   return (
     <section className="home-services" id="servicios">
       <div className="home-section-heading">
@@ -217,8 +243,7 @@ function Services() {
           const Icon = service.icon;
 
           return (
-            <a
-              href={service.link}
+            <article
               className="home-service-card"
               key={service.title}
             >
@@ -233,14 +258,86 @@ function Services() {
               <div className="home-service-content">
                 <h3>{service.title}</h3>
                 <p>{service.description}</p>
-                <span className="home-service-link">
+
+                <button
+                  type="button"
+                  className="home-service-link"
+                  onClick={() => setSelectedService(service)}
+                  aria-label={`Descubrir ${service.title}`}
+                >
                   Descubrir <ArrowRight size={15} />
-                </span>
+                </button>
               </div>
-            </a>
+            </article>
           );
         })}
       </div>
+
+      {selectedService && (
+        <div
+          className="home-modal-overlay"
+          onClick={() => setSelectedService(null)}
+        >
+          <div
+            className="home-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="home-modal-title"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              className="home-modal-close"
+              onClick={() => setSelectedService(null)}
+              aria-label="Cerrar ventana"
+            >
+              <X size={23} />
+            </button>
+
+            <div className="home-modal-image">
+              <img
+                src={selectedService.image}
+                alt={selectedService.title}
+              />
+              <div className="home-modal-image-overlay" />
+              <div className="home-modal-icon">
+                {React.createElement(selectedService.icon, {
+                  size: 30,
+                  strokeWidth: 1.8,
+                })}
+              </div>
+            </div>
+
+            <div className="home-modal-content">
+              <span className="home-modal-eyebrow">
+                SERVICIOS DE BIENESTAR
+              </span>
+
+              <h2 id="home-modal-title">
+                {selectedService.title}
+              </h2>
+
+              <h3>{selectedService.subtitle}</h3>
+
+              <p>
+                {selectedService.detail.split("\n\n").map((paragraph, index) => (
+                  <React.Fragment key={index}>
+                    {index > 0 && <br />}
+                    {index > 0 && <br />}
+                    {paragraph}
+                  </React.Fragment>
+                ))}
+              </p>
+
+              <div className="home-modal-highlight">
+                <span>{selectedService.highlight}</span>
+              </div>
+
+             
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
