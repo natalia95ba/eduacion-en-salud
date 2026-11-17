@@ -55,7 +55,7 @@ function Hero() {
     <section className="work-hero">
       <div className="work-hero-image">
         <img
-          src="/images/talleres-bienestar.jpeg"
+          src={`${import.meta.env.BASE_URL}images/talleres-bienestar.jpeg`}
           alt="Espacio de trabajo preparado para una reunión"
         />
       </div>

@@ -29,7 +29,7 @@ const services = [
     title: "Movimiento cotidiano",
     description:
       "Pequeñas oportunidades para moverse más y reducir el tiempo sedentario.",
-    image: "/images/movimiento.jpeg",
+    image: `${import.meta.env.BASE_URL}images/movimiento.jpeg`,
     icon: Footprints,
     link: "/movimiento",
     subtitle: "Moverse más, sin complicarse",
@@ -41,7 +41,7 @@ const services = [
     title: "Fuerza y capacidad cardiovascular",
     description:
       "Herramientas para incorporar el ejercicio físico de forma realista y sostenible.",
-    image: "/images/fuerza.jpeg",
+    image: `${import.meta.env.BASE_URL}images/fuerza.jpeg`,
     icon: Dumbbell,
     link: "/fuerza",
     subtitle: "Entrenar también es posible con poco tiempo",
@@ -54,7 +54,7 @@ const services = [
     title: "Alimentación",
     description:
       "Soluciones prácticas para organizar mejor las comidas, incluso con poco tiempo.",
-    image: "/images/alimentacion.jpeg",
+    image: `${import.meta.env.BASE_URL}images/alimentacion.jpeg`,
     icon: Apple,
     link: "/alimentacion",
     subtitle: "Comer mejor sin pasar horas en la cocina",
@@ -67,7 +67,7 @@ const services = [
     title: "Calma y descanso",
     description:
       "Estrategias para gestionar el estrés cotidiano y favorecer un descanso de calidad.",
-    image: "/images/calma.jpeg",
+    image: `${import.meta.env.BASE_URL}images/calma.jpeg`,
     icon: Flower2,
     link: "/calma",
     subtitle: "Encontrar momentos de calma en días exigentes",
@@ -79,7 +79,7 @@ const services = [
     title: "Hábitos",
     description:
       "Recursos para facilitar cambios sostenibles sin depender de la motivación constante.",
-    image: "/images/habitos.jpeg",
+    image: `${import.meta.env.BASE_URL}images/habitos.jpeg`,
     icon: Flower2,
     link: "/habitos",
     subtitle: "De las buenas intenciones a la acción",
@@ -139,7 +139,7 @@ function Hero() {
     <section className="home-hero">
       <div className="home-hero-background">
         <img
-          src="/images/juanma-desire.png"
+          src={`${import.meta.env.BASE_URL}images/juanma-desire.jpeg`}
           alt="Equipo de Educación en Salud"
         />
       </div>

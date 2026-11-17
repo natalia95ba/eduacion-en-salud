@@ -42,7 +42,7 @@ function ProtectedRoute() {
 }
 
 export default function App() {
-  return <BrowserRouter><Routes><Route path="/" element={<Home/>}/>
+  return <BrowserRouter basename="/educacion-en-salud"><Routes><Route path="/" element={<Home/>}/>
    <Route path="/quienes-somos" element={<MeetUs />} />
 <Route path="/servicios" element={<Servicios />} />
 <Route

@@ -27,31 +27,31 @@ const services = [
   {
     title: "Movimiento cotidiano",
     icon: Armchair,
-    image: "/images/movimiento.jpeg",
+    image: `${import.meta.env.BASE_URL}images/movimiento.jpeg`,
     link: "/movimiento",
   },
   {
     title: "Fuerza y capacidad cardiovascular",
     icon: Dumbbell,
-    image: "/images/fuerza.jpeg",
+    image: `${import.meta.env.BASE_URL}images/fuerza.jpeg`,
     link: "/fuerza",
   },
   {
     title: "Alimentación",
     icon: Apple,
-    image: "/images/alimentacion.jpeg",
+    image: `${import.meta.env.BASE_URL}images/alimentacion.jpeg`,
     link: "/alimentacion",
   },
   {
     title: "Calma y descanso",
     icon: Flower2,
-    image: "/images/calma.jpeg",
+    image: `${import.meta.env.BASE_URL}images/calma.jpeg`,
     link: "/calma",
   },
   {
     title: "Hábitos",
     icon: CalendarCheck,
-    image: "/images/habitos.jpeg",
+    image: `${import.meta.env.BASE_URL}images/habitos.jpeg`,
     link: "/habitos",
   },
 ];
@@ -70,7 +70,7 @@ const whatsappUrl = `https://wa.me/644998302?text=${encodeURIComponent(
     <section className="services-hero">
       <div className="services-hero-image">
         <img
-          src="/images/enterprise-hero.jpeg"
+          src={`${import.meta.env.BASE_URL}images/enterprise-hero.jpeg`}
           alt="Personas participando en una reunión de trabajo"
         />
       </div>
@@ -140,7 +140,7 @@ function Introduction() {
     <section className="services-introduction">
       <div className="services-intro-image">
         <img
-          src="/images/talleres-bienestar.jpeg"
+          src={`${import.meta.env.BASE_URL}images/talleres-bienestar.jpeg`}
           alt="Espacio de trabajo con ordenador y botella de agua"
         />
       </div>
