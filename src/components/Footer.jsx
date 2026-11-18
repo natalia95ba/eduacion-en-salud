@@ -3,6 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { MessageCircle, ArrowRight } from "lucide-react";
 import "./Footer.css";
+import { isFeatureFlagAllowed } from "../utils/featureflag";
 
 const whatsappMessage =
   "Buenas tardes, me gustaría saber más sobre el programa PAUSA para empresas";
@@ -66,6 +67,14 @@ export function Footer() {
             Condiciones del servicio
           </Link>
         </nav>
+        {isFeatureFlagAllowed() &&    <a
+  className="site-header__contact"
+  href={'/login-clientes'}
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Soy Empresa
+</a>}
       </div>
 
     </footer>

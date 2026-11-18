@@ -7,9 +7,9 @@ import {
   BarChart3, Bike, PersonStanding, Heart, Timer, Waves,
   Dumbbell as Weight, RotateCcw, DownloadCloud
 } from 'lucide-react';
-import banner from './assets/banner.jpeg';
-import videoThumb from './assets/video-thumb.jpeg';
-import YouTubePlayer from '../src/components/YoutubePlayer';
+import banner from './assets/banner.jpg';
+import videoThumb from './assets/video-thumb.jpg';
+import YouTubePlayer from '../../src/components/YoutubePlayer';
 import './styles.css'
 
 const lessons = [
@@ -34,8 +34,7 @@ function Sidebar({ activeNav, setActiveNav, open, onClose }) {
     { label: 'Movimiento cotidiano', icon: Footprints },
     { label: 'Fuerza y capacidad cardiovascular', icon: Dumbbell },
     { label: 'Alimentación', icon: Apple },
-    { label: 'Descanso', icon: Bed },
-    { label: 'Bienestar emocional', icon: Flower2 },
+    { label: 'Calma', icon: Bed },
     { label: 'Hábitos y continuidad', icon: RefreshCw },
   ];
   return <>

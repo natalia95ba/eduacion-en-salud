@@ -32,7 +32,7 @@ export function Header() {
           aria-label="Educación en Salud - Inicio"
         >
           <img
-            src={`${import.meta.env.BASE_URL}images/logo.png`}
+            src={`/images/logo.png`}
             alt="Educación en Salud"
             className="site-header__logo"
           />

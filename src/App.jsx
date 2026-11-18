@@ -4,6 +4,8 @@ import { BrowserRouter, Link, Route, Routes, Navigate,   Outlet,
  import React from 'react'
 /* import Footer from './components/Footer'
 import { Button } from './components/ui/button' */
+import CustomerDashboardPage from './EnterprisePrivateZone/Main'
+import EnterpriseLogin from './EnterprisePrivateZone/Login'
 
 import Home from './PublicZone/Home'
 import MeetUs from './PublicZone/MeetUs'
@@ -14,6 +16,12 @@ import {
   PoliticaPrivacidad,
   CondicionesServicio,
 } from "./PublicZone/LegalPages";
+import { isFeatureFlagAllowed } from './utils/featureflag'
+import AlimentacionDashboard from './EnterprisePrivateZone/Alimentacion'
+import Movimiento from './EnterprisePrivateZone/Movimiento'
+import { Fuerza } from './EnterprisePrivateZone/Fuerza'
+import { Calma } from './EnterprisePrivateZone/Calma'
+import { Habitos } from './EnterprisePrivateZone/Habitos'
 
 
  
@@ -22,13 +30,13 @@ function Placeholder({ title }) {
 }
 
 function isAuthenticated() {
-  return Boolean(localStorage.getItem("pawsitive_token"));
+  return Boolean(localStorage.getItem("pausa_token"));
 }
 
 function ProtectedRoute() {
   const location = useLocation();
 /* TODO: eliminar false */
-  if (!isAuthenticated() && false) {
+  if (!isAuthenticated() || isFeatureFlagAllowed() && false) {
     return (
       <Navigate
         to="/login-clientes"
@@ -42,7 +50,7 @@ function ProtectedRoute() {
 }
 
 export default function App() {
-  return <BrowserRouter basename="/educacion-en-salud"><Routes><Route path="/" element={<Home/>}/>
+  return <BrowserRouter><Routes><Route path="/" element={<Home/>}/>
    <Route path="/quienes-somos" element={<MeetUs />} />
 <Route path="/servicios" element={<Servicios />} />
 <Route
@@ -64,10 +72,15 @@ export default function App() {
 
 
 {/* Clientes */}
-{/*   <Route path="/login-clientes" element={<ClientLoginPage />} />
+ <Route path="/login-clientes" element={<EnterpriseLogin />} />
         <Route element={<ProtectedRoute />}>
           <Route path="/dashboard" element={<CustomerDashboardPage />} />
-</Route> */}
+             <Route path="/alimentacion" element={<AlimentacionDashboard />} />
+                          <Route path="/movimiento" element={<Movimiento />} />
+<Route path="/fuerza" element={<Fuerza />} />
+<Route path="/calma" element={<Calma />} />
+<Route path="/habitos" element={<Habitos />} />
+</Route> 
 
 
     <Route path="*" element={<Placeholder title="Página no encontrada"/>}/>
