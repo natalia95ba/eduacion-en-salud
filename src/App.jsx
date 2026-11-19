@@ -4,8 +4,8 @@ import { BrowserRouter, Link, Route, Routes, Navigate,   Outlet,
  import React from 'react'
 /* import Footer from './components/Footer'
 import { Button } from './components/ui/button' */
-import CustomerDashboardPage from './EnterprisePrivateZone/Main'
-import EnterpriseLogin from './EnterprisePrivateZone/Login'
+/* import CustomerDashboardPage from './EnterprisePrivateZone/Main'
+ */import EnterpriseLogin from './EnterprisePrivateZone/Login'
 
 import Home from './PublicZone/Home'
 import MeetUs from './PublicZone/MeetUs'
@@ -22,6 +22,8 @@ import Movimiento from './EnterprisePrivateZone/Movimiento'
 import { Fuerza } from './EnterprisePrivateZone/Fuerza'
 import { Calma } from './EnterprisePrivateZone/Calma'
 import { Habitos } from './EnterprisePrivateZone/Habitos'
+import AreasPage from './EnterprisePrivateZone/Dashboard'
+import TrainingBuilder from './EnterprisePrivateZone/TrainingBuilder'
 
 
  
@@ -74,9 +76,11 @@ export default function App() {
 {/* Clientes */}
  <Route path="/login-clientes" element={<EnterpriseLogin />} />
         <Route element={<ProtectedRoute />}>
-          <Route path="/dashboard" element={<CustomerDashboardPage />} />
+          <Route path="/dashboard" element={<AreasPage />} />
              <Route path="/alimentacion" element={<AlimentacionDashboard />} />
-                          <Route path="/movimiento" element={<Movimiento />} />
+         <Route path="/movimiento" element={<Movimiento />} />
+                    <Route path="/entrenamiento-personalizado" element={<TrainingBuilder />} />
+
 <Route path="/fuerza" element={<Fuerza />} />
 <Route path="/calma" element={<Calma />} />
 <Route path="/habitos" element={<Habitos />} />

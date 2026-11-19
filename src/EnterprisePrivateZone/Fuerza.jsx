@@ -6,6 +6,7 @@ import {
   TrendingUp, Play, FileText, ChevronRight
 } from "lucide-react";
 import "./css/PausaBlocks.css";
+import { useNavigate } from "react-router-dom";
 
 const base = import.meta.env.BASE_URL;
 
@@ -21,6 +22,7 @@ const forceItems = [
     description: "Genera tu plan en unos minutos según tus días, nivel y lugar de entrenamiento.",
     image: "movimiento.jpeg",
     icon: SlidersHorizontal,
+    href: '/'
   },
   {
     title: "Progresa sin complicarte",
@@ -69,6 +71,8 @@ function PausaFooter({ items }) {
 }
 
 export function Fuerza() {
+      const navigate = useNavigate();
+
   return <div className="pausa-layout">
     <PausaSidebar active="Fuerza y capacidad cardiovascular"/>
     <main className="pausa-content">
@@ -80,8 +84,10 @@ export function Fuerza() {
 
       <div className="pausa-force-grid">
         <section className="pausa-force-list">
-          {forceItems.map(({ title, description, image, icon: Icon }) => (
-            <article className="pausa-force-card" key={title}>
+          {forceItems.map(({ title, description, image, icon: Icon, href, onClick }) => (
+            <article className="pausa-force-card" key={title} onClick={() => {if(href) {
+navigate('/entrenamiento-personalizado')
+            }}}>
               <img src={`${base}images/${image}`} alt=""/>
               <div className="pausa-round-icon"><Icon size={34}/></div>
               <div className="pausa-card-copy">

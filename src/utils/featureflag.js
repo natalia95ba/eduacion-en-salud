@@ -1,4 +1,6 @@
 
 export const isFeatureFlagAllowed = () => {
-    return Boolean(localStorage.getItem("entornoPruebas"));
+ const params = new URLSearchParams(window.location.search);
+ console.log(params)
+  return params.has('entornopruebas');
 }
